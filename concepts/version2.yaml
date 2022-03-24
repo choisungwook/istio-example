@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: version1
+  name: version2
   labels:
     version: v2
 spec:
@@ -18,7 +18,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: version1-svc
+  name: version12svc
 spec:
   selector:
     version: v2
