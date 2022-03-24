@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: version2
   labels:
+    app: demo
     version: v2
 spec:
   restartPolicy: Always
@@ -17,12 +18,31 @@ spec:
       - containerPort: 80
 ---
 apiVersion: v1
+kind: Pod
+metadata:
+  name: version1
+  labels:
+    app: demo
+    version: v1
+spec:
+  restartPolicy: Always
+  containers:    
+  - name: version1
+    image: choisunguk/istio-pythondemo:v1.1
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "100m"
+    ports:
+      - containerPort: 80
+---
+apiVersion: v1
 kind: Service
 metadata:
-  name: version2-svc
+  name: demo-version
 spec:
   selector:
-    version: v2
+    app: demo
   ports:
   - port: 80
     targetPort: 80
