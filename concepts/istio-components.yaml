@@ -25,11 +25,11 @@ spec:
   http:
   - route:
     - destination:
-        host: version1
+        host: version1-svc
         subset: v1
       weight: 30
     - destination:
-        host: version2
+        host: version2-svc
         subset: v2
       weight: 70
 ---

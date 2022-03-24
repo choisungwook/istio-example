@@ -19,7 +19,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: version12svc
+  name: version2-svc
 spec:
   selector:
     version: v2
