@@ -21,16 +21,20 @@ spec:
   hosts:
   - "helloworld.com"
   gateways:
-  - demo-gateway
+  - demo-gateway  
   http:
   - route:
     - destination:
         host: version1-svc
         subset: v1
+        port:
+          number: 80
       weight: 30
     - destination:
         host: version2-svc
         subset: v2
+        port:
+          number: 80
       weight: 70
 ---
 apiVersion: networking.istio.io/v1alpha3
