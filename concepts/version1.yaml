@@ -5,7 +5,8 @@ metadata:
   labels:
     version: v1
 spec:
-  containers:
+  restartPolicy: Always
+  containers:    
   - name: version1
     image: choisunguk/istio-pythondemo:v1
     resources:
