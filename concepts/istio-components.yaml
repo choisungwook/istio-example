@@ -25,13 +25,13 @@ spec:
   http:
   - route:
     - destination:
-        host: version1-svc
+        host: demo-version
         subset: v1
         port:
           number: 80
       weight: 30
     - destination:
-        host: version2-svc
+        host: demo-version
         subset: v2
         port:
           number: 80
@@ -40,7 +40,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: demo-dst
+  name: demo-version
 spec:
   host: "helloworld.com"
   subsets:
