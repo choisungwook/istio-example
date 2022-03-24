@@ -8,7 +8,7 @@ spec:
   restartPolicy: Always
   containers:    
   - name: version1
-    image: choisunguk/istio-pythondemo:v1
+    image: choisunguk/istio-pythondemo:v1.1
     resources:
       limits:
         memory: "128Mi"
