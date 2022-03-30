@@ -17,9 +17,9 @@ spec:
         image: quay.io/oauth2-proxy/oauth2-proxy:v7.2.1
         args:
         - --provider=oidc
-        - --oidc-issuer-url=http://keycloak.keycloak.svc.cluster.local:8080/auth/realms/istio
-        - --profile-url=http://keycloak.keycloak.svc.cluster.local:8080/auth/realms/istio/protocol/openid-connect/userinfo
-        - --validate-url=http://keycloak.keycloak.svc.cluster.local:8080/auth/realms/istio/protocol/openid-connect/userinfo      
+        - --oidc-issuer-url=http://keycloak.infra.svc.cluster.local/auth/realms/istio-ingress # change here
+        - --profile-url=http://keycloak.infra.svc.cluster.local/auth/realms/istio-ingress/protocol/openid-connect/userinfo # change here
+        - --validate-url=http://keycloak.infra.svc.cluster.local/auth/realms/istio-ingress/protocol/openid-connect/userinfo # change here
         - --set-authorization-header=true
         - --http-address=0.0.0.0:4180
         - --pass-host-header=true
@@ -39,7 +39,7 @@ spec:
         - --ssl-insecure-skip-verify=true
         - --standard-logging=true
         - --upstream="static://200"
-        - --whitelist-domain=".magedu.com,.cluster.local"
+        - --whitelist-domain=".choilab.xyz,.cluster.local" # change here
         env:
         - name: OAUTH2_PROXY_CLIENT_ID
           valueFrom:

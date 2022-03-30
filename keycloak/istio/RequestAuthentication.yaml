@@ -1,0 +1,15 @@
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: istio-ingressgateway
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  jwtRules:
+  - issuer: http://keycloak.infra.svc.cluster.local/auth/realms/istio-ingress # change here
+    jwksUri: http://keycloak.infra.svc.cluster.local/auth/realms/istio-ingress/protocol/openid-connect/certs # change here
+    #audiences: ["ingress-gateway","istio-ingress-gateway"]
+    # Forward JWT to Envoy Sidecar
+    #forwardOriginalToken: true
